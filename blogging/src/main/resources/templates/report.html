@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Report</title>
+    <link rel="stylesheet" href=".././static/style.css">
+</head>
+<body>
+<h2>Word Frequency Report</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Word</th>
+        <th>Frequency</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="entry : ${wordCount}">
+        <td th:text="${entry.key}"></td>
+        <td th:text="${entry.value}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<br>
+<a href="./dashboard.html">Back to Dashboard</a>
+</body>
+</html>

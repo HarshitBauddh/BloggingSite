@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href=".././static/style.css">
+</head>
+<body>
+<h2>Welcome to Your Dashboard</h2>
+<h3>Your Blogs</h3>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Blog Name</th>
+        <th>Body</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="blog : ${blogs}">
+        <td th:text="${blogs.blog_name}"></td>
+        <td th:text="${blogs.body}"></td>
+        <td>
+            <a href="./blogs/edit/{id}(id=${blogs.id})">Edit</a> |
+            <a href="./blogs/delete/{id}(id=${blogs.id})">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Add New Blog</h3>
+<form th:action="/blogs" method="post">
+    <div>
+        <label for="blog_name">Blog Name:</label>
+        <input type="text" id="blog_name" name="blog_name" required>
+    </div>
+    <div>
+        <label for="body">Body:</label>
+        <textarea id="body" name="body" required></textarea>
+    </div>
+    <div>
+        <button type="submit">Save</button>
+    </div>
+</form>
+
+<br>
+<a href="./report.html">View Report </a><br>
+<br>
+<a href="./logout">Logout</a>
+</body>
+</html>
